@@ -1,14 +1,11 @@
 export default function handler(req, res) {
   const userAgent = req.headers['user-agent'] || '';
   
+  // Roblox'tan gelen istekleri kontrol et
   if (userAgent.includes('Roblox')) {
     res.status(200).send(`
-      -- GERÇEK SCRIPT BURAYA YAZILACAK
-      local player = game.Players.LocalPlayer
-      local character = player.Character or player.CharacterAdded:Wait()
-      
-      character.Humanoid.WalkSpeed = 50  -- Hız hack örneği
-      print("Chaos Hub yüklendi!")
+      print("Merhaba Test Hub!")
+      print("Merhaba Test Hub!")
     `);
   } else {
     res.status(200).send("Burada ne işin var?");
