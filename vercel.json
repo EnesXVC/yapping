@@ -1,8 +1,6 @@
 {
+  "version": 2,
   "routes": [
-    {
-      "src": "/script/loader",
-      "dest": "/api/script/loader"
-    }
+    { "src": "/script/loader", "dest": "/api/script/loader" }
   ]
 }
