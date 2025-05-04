@@ -1,14 +1,16 @@
 export default function handler(req, res) {
   const userAgent = req.headers['user-agent'] || '';
-
-  // Sadece Roblox'tan gelen isteklere script döndür
+  
   if (userAgent.includes('Roblox')) {
     res.status(200).send(`
-      print("Chaos Hub Aktif!")
-      -- Ana script buraya gelecek
+      -- GERÇEK SCRIPT BURAYA YAZILACAK
+      local player = game.Players.LocalPlayer
+      local character = player.Character or player.CharacterAdded:Wait()
+      
+      character.Humanoid.WalkSpeed = 50  -- Hız hack örneği
+      print("Chaos Hub yüklendi!")
     `);
   } else {
-    // Tarayıcıdan erişenlere mesaj göster
     res.status(200).send("Burada ne işin var?");
   }
 }
