@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Hub</title>
+  <style>
+    body { background: #111; color: white; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Test Hub</h1>
+  <p>Scripti kopyalamak için butona basın:</p>
+  <button onclick="copyScript()">Copy Script</button>
+  <script>
+    function copyScript() {
+      navigator.clipboard.writeText('loadstring(game:HttpGet("https://test-hub.vercel.app/api/script/loader"))()');
+      alert("Script kopyalandı!");
+    }
+  </script>
+</body>
+</html>
