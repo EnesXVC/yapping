@@ -1,0 +1,7 @@
+.input {
+  @apply w-full my-2 p-2 rounded bg-gray-800 text-white outline-none;
+}
+
+.btn {
+  @apply px-4 py-2 rounded text-white hover:opacity-80;
+}
