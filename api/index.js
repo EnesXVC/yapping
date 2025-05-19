@@ -1,15 +1,19 @@
 let count = 0;
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  // POST isteği gelirse count'u 1 artır
   if (req.method === 'POST') {
     count++;
-    // Sadece sayıyı döndür (JSON olarak değil)
-    res.status(200).send(count.toString());
-  } else if (req.method === 'GET') {
-    // Sadece sayıyı döndür (JSON olarak değil)
-    res.status(200).send(count.toString());
-  } else {
-    res.setHeader('Allow', ['GET', 'POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+    await new Promise(resolve => setTimeout(resolve, 100)); // Küçük bir bekleme ekle
+    return res.status(200).send(count.toString());
   }
+  
+  // GET isteği gelirse count'u gönder
+  if (req.method === 'GET') {
+    return res.status(200).send(count.toString());
+  }
+
+  // Diğer metodlara izin verme
+  res.setHeader('Allow', ['GET', 'POST']);
+  res.status(405).end('Method Not Allowed');
 }
